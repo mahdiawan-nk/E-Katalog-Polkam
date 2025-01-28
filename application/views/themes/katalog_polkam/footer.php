@@ -2,8 +2,8 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <a href="https://wa.me/6285376621945?text=urlencodedtext" target="_blank" class="whatsapp-button">
-        <i class="fab fa-whatsapp fa-2x"></i>
-    </a>
+    <i class="fab fa-whatsapp fa-2x"></i>
+</a>
 <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
     <div class="container py-4">
 
@@ -42,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </ul>
                 </div>
             </div>
-            
+
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Punya Pertanyaan?</h2>
@@ -67,7 +67,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <p>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     &copy;<script>
-                    document.write(new Date().getFullYear());
+                        document.write(new Date().getFullYear());
                     </script> Developed With <i class="icon-heart text-danger" aria-hidden="true"></i>
                     Dhea
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -101,67 +101,92 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script src="<?php echo base_url('assets/plugins/toastr/toastr.min.js'); ?>"></script>
 
 <script>
-toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": false,
-    "positionClass": "toast-top-right",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-}
-
-$.ajax({
-    method: 'GET',
-    url: '<?php echo site_url('shop/cart_api?action=cart_info'); ?>',
-    success: function(res) {
-        var data = res.data;
-
-        var total_item = data.total_item;
-        $('.cart-item-total').text(total_item);
+    $(".home-slider").owlCarousel({
+        loop: true,
+        autoplay: true,
+        margin: 0,
+        animateOut: "fadeOut",
+        animateIn: "fadeIn",
+        nav: false,
+        autoplayHoverPause: false,
+        items: 1,
+        navText: [
+            "<span class='ion-md-arrow-back'></span>",
+            "<span class='ion-chevron-right'></span>",
+        ],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 1,
+            },
+            1000: {
+                items: 1,
+            },
+        },
+    });
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
     }
-});
-
-$('.add-cart').click(function(e) {
-    e.preventDefault();
-
-    var id = $(this).data('id');
-    var sku = $(this).data('sku');
-    var qty = $(this).data('qty');
-    qty = (qty > 0) ? qty : 1;
-    var price = $(this).data('price');
-    var name = $(this).data('name');
 
     $.ajax({
-        method: 'POST',
-        url: '<?php echo site_url('shop/cart_api?action=add_item'); ?>',
-        data: {
-            id: id,
-            sku: sku,
-            qty: qty,
-            price: price,
-            name: name
-        },
+        method: 'GET',
+        url: '<?php echo site_url('shop/cart_api?action=cart_info'); ?>',
         success: function(res) {
-            if (res.code == 200) {
-                var totalItem = res.total_item;
+            var data = res.data;
 
-                $('.cart-item-total').text(totalItem);
-                toastr.info('Item ditambahkan dalam keranjang');
-            } else {
-                console.log('Terjadi kesalahan');
-            }
+            var total_item = data.total_item;
+            $('.cart-item-total').text(total_item);
         }
     });
-});
+
+    $('.add-cart').click(function(e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        var sku = $(this).data('sku');
+        var qty = $(this).data('qty');
+        qty = (qty > 0) ? qty : 1;
+        var price = $(this).data('price');
+        var name = $(this).data('name');
+
+        $.ajax({
+            method: 'POST',
+            url: '<?php echo site_url('shop/cart_api?action=add_item'); ?>',
+            data: {
+                id: id,
+                sku: sku,
+                qty: qty,
+                price: price,
+                name: name
+            },
+            success: function(res) {
+                if (res.code == 200) {
+                    var totalItem = res.total_item;
+
+                    $('.cart-item-total').text(totalItem);
+                    toastr.info('Item ditambahkan dalam keranjang');
+                } else {
+                    console.log('Terjadi kesalahan');
+                }
+            }
+        });
+    });
 </script>
 
 </body>
