@@ -9,7 +9,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
-                    <div class="col-md-12 ftco-animate text-center">
+                    <div class="col-md-12 ftco-animate text-center" id="slider-homes">
                       
                          <p style="font-size: 80px; color: #ff7f00;"></p>
                         <p><a href="<?php echo site_url('pages/produk'); ?>" class="btn" style="background-color: #ff7f00; color: white;">PRODUK</a></p>
@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
-                    <div class="col-md-12 ftco-animate text-center">
+                    <div class="col-md-12 ftco-animate text-center" id="slider-homes">
                       
                          <p style="font-size: 80px; color: #ff7f00;"></p>
                         <p><a href="<?php echo site_url('pages/jasa'); ?>" class="btn" style="background-color: #ff7f00; color: white;">JASA</a></p>
