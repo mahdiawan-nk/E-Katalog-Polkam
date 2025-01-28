@@ -44,6 +44,55 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="<?php echo get_theme_uri('js/jquery.min.js'); ?>"></script>
     <script src="<?php echo get_theme_uri('js/jquery-migrate-3.0.1.min.js'); ?>"></script>
     <style>
+        .owl-carousel.home-slider .slider-item {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+            height: 39dvw;
+            z-index: 0;
+        }
+
+        #slider-homes {
+            /* bottom: -51px; */
+            position: fixed;
+            top: 75%;
+            bottom: 100px;
+        }
+        #products {
+                margin-top: 30px;
+            }
+        @media (max-width: 991px) {
+            .owl-carousel.home-slider .slider-item {
+                background-size: fill;
+                background-repeat: no-repeat;
+                background-position: center center;
+                position: relative;
+                z-index: 0;
+            }
+
+            .owl-carousel.home-slider {
+                position: relative;
+                height: 27vh;
+                z-index: 0;
+            }
+
+            #slider-homes {
+                /* bottom: -51px; */
+                position: fixed;
+                top: 50%;
+                bottom: 100px;
+            }
+
+            #products {
+                margin-top: 0px;
+            }
+
+            #home-section {
+                height: auto;
+            }
+        }
+
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
