@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <!-- Footer -->
 <footer class="footer pt-0">
@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </footer>
 </div>
-</div>
+</main>
 
 <!-- Argon Scripts -->
 <!-- Core -->
