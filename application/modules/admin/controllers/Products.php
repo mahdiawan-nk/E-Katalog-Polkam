@@ -120,7 +120,7 @@ class Products extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="form-error text-danger font-weight-bold">', '</div>');
 
         $this->form_validation->set_rules('name', 'Nama produk', 'trim|required|min_length[4]|max_length[255]');
-        $this->form_validation->set_rules('price', 'Harga produk', 'trim|required');
+        // $this->form_validation->set_rules('price', 'Harga produk', 'trim|required');
         $this->form_validation->set_rules('stock', 'Stok barang', 'required|numeric');
         $this->form_validation->set_rules('unit', 'Satuan barang', 'required');
         $this->form_validation->set_rules('description', 'Deskripsi produk', 'max_length[512]');
@@ -133,7 +133,7 @@ class Products extends CI_Controller {
         {
             $name = $this->input->post('name');
             $category_id = $this->input->post('category_id');
-            $price = $this->input->post('price');
+            // $price = $this->input->post('price');
             $stock = $this->input->post('stock');
             $unit = $this->input->post('unit');
             $desc = $this->input->post('desc');
@@ -209,7 +209,7 @@ class Products extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="form-error text-danger font-weight-bold">', '</div>');
 
         $this->form_validation->set_rules('name', 'Nama produk', 'trim|required|min_length[4]|max_length[255]');
-        $this->form_validation->set_rules('price', 'Harga produk', 'trim|required');
+        // $this->form_validation->set_rules('price', 'Harga produk', 'trim|required');
         $this->form_validation->set_rules('stock', 'Stok barang', 'required|numeric');
         $this->form_validation->set_rules('unit', 'Satuan barang', 'required');
         $this->form_validation->set_rules('description', 'Deskripsi produk', 'max_length[512]');
@@ -227,8 +227,8 @@ class Products extends CI_Controller {
 
             $name = $this->input->post('name');
             $category_id = $this->input->post('category_id');
-            $price = $this->input->post('price');
-            $discount = $this->input->post('price_discount');
+            // $price = $this->input->post('price');
+            // $discount = $this->input->post('price_discount');
             $stock = $this->input->post('stock');
             $unit = $this->input->post('unit');
             $desc = $this->input->post('desc');
