@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-<a href="https://wa.me/6285376621945?text=urlencodedtext" target="_blank" class="whatsapp-button">
+<a href="https://wa.me/<?php echo get_settings('store_phone_number'); ?>?text=Saya%20tertarik%20dengan%20produk%20dan%20jasa%20Politeknik%20Kampar" target="_blank" class="whatsapp-button">
     <i class="fab fa-whatsapp fa-2x"></i>
 </a>
 <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <h2 class="ftco-heading-2"><?php echo get_store_name(); ?></h2>
                     <p><?php echo get_settings('store_description'); ?></p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate"><a href="https://wa.me/6285376621945?text=Saya%20tertarik%20dengan%20produk%20dan%20jasa%20Politeknik%20Kampar"><span
+                        <li class="ftco-animate"><a href="https://wa.me/<?php echo get_settings('store_phone_number'); ?>?text=Saya%20tertarik%20dengan%20produk%20dan%20jasa%20Politeknik%20Kampar"><span
                                     class="bi bi-whatsapp"></span></a>
                         </li>
                         <li class="ftco-animate"><a href="https://www.facebook.com/share/1CkD7A79Um/?mibextid=wwXIfr"><span class="icon-facebook"></span></a></li>
