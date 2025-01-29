@@ -180,10 +180,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Info Kontak</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="https://wa.me/6285376621945?text=Saya%20tertarik%20dengan%20produk%20dan%20jasa%20Politeknik%20Kampar">Chat Admin</a>
+                            <a class="dropdown-item" href="https://wa.me/<?php echo get_settings('store_phone_number'); ?>?text=Saya%20tertarik%20dengan%20produk%20dan%20jasa%20Politeknik%20Kampar">Chat Admin</a>
 
                             <a class="dropdown-item"
-                                href="https://wa.me/6285376621945?text=Saya%20ingin%20meminta%20surat%20penawaran%20dari%20Politeknik%20Kampar%20dengan%20detail%20sebagai%20berikut%3A%0A1.%20Nama%20Perusahaan%2FInstansi%2FNama%20Perorangan%20%3A%20%02A.%20Produk%20yang%20Diinginkan%20%3A%20Harga%20%3A%20%02%0A4.%20Estimasi%20Pengerjaan%20%3A%20%05A.%20Informasi%20Lainnya%20%3A%20
+                                href="https://wa.me/<?php echo get_settings('store_phone_number'); ?>?text=Saya%20ingin%20meminta%20surat%20penawaran%20dari%20Politeknik%20Kampar%20dengan%20detail%20sebagai%20berikut%3A%0A1.%20Nama%20Perusahaan%2FInstansi%2FNama%20Perorangan%20%3A%20%02A.%20Produk%20yang%20Diinginkan%20%3A%20Harga%20%3A%20%02%0A4.%20Estimasi%20Pengerjaan%20%3A%20%05A.%20Informasi%20Lainnya%20%3A%20
                                 ">Surat Penawaran</a>
                         </div>
                     </li>
