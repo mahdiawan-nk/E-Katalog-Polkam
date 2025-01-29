@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
     <!-- Page content -->
-    <div class="container-fluid mt--6">
+    <div class="container-fluid mt-6">
       <div class="row">
         <div class="col-md-5">
           <div class="card-wrapper">
@@ -53,16 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td>:</td>
                         <td><b><?php echo $product->sku; ?></b></td>
                     </tr>
-                    <tr>
-                        <td>Harga</td>
-                        <td>:</td>
-                        <td><b>Rp <?php echo format_rupiah($product->price); ?></b></td>
-                    </tr>
-                    <tr>
-                        <td>Diskon</td>
-                        <td>:</td>
-                        <td><b>Rp <?php echo format_rupiah($product->current_discount); ?> (<?php echo count_percent_discount($product->current_discount, $product->price, 2); ?> %)</b></td>
-                    </tr>
+                    
                     <tr>
                         <td>Kategori</td>
                         <td>:</td>
