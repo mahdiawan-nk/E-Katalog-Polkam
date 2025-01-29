@@ -41,7 +41,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												<br>
 												<br>
 												Tersedia : <?php echo ($product->stock > 0) ? $product->stock . ' ' . $product->product_unit : '<span class="text-danger"><em>Stok habis</em></span>'; ?>
-												<br>Harga/Pcs : Rp <?php echo format_rupiah($product->price); ?>
 											</div>
 											<center>
 												<p><?= $product->description ?></p>
