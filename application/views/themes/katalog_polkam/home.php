@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <section id="home-section" class="hero">
     <div class="home-slider owl-carousel">
         <div class="slider-item"
-            style="background-image: url(<?php echo get_theme_uri('images/produk.jpg'); ?>);">
+            style="background-image: url(<?= base_url('assets/uploads/sites/'.get_settings('home_banners_first')) ?>);">
             <div class="overlay"></div>
             <div class="container" hidden>
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -20,7 +20,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
 
         <div class="slider-item"
-            style="background-image: url(<?php echo get_theme_uri('images/jasa.jpg'); ?>);">
+            style="background-image: url(<?= base_url('assets/uploads/sites/'.get_settings('home_banners_second')) ?>);">
             <div class="overlay"></div>
             <div class="container" hidden>
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
