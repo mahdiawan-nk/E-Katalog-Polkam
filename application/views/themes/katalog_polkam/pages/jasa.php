@@ -149,7 +149,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                         </div> -->
                         Tersedia : <?php echo ($product->stock > 0) ? $product->stock .' '. $product->product_unit: '<span class="text-danger"><em>Stok habis</em></span>'; ?> 
-                                <br>Harga/Pcs : Rp <?php echo format_rupiah($product->price); ?>
+                                
                        <!--  <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
                                 <a href="<?php echo site_url('shop/product/' . $product->id . '/' . $product->sku . '/'); ?>"
