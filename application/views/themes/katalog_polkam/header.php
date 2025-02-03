@@ -117,7 +117,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body class="goto-here">
-    <div class="py-1" style="background-color: #ff7f00; color: white;">
+    <div class="py-1 d-none d-lg-block" style="background-color: #ff7f00; color: white;">
         <div class="container">
             <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
                 <div class="col-lg-12 d-block">
@@ -151,18 +151,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="<?php echo base_url(); ?>" class="nav-link">Beranda</a></li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Shop</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="<?php echo site_url('shop/cart'); ?>">Keranjang Belanja</a>
-                            <a class="dropdown-item"
-                                href="<?php echo site_url('customer/payments/confirm'); ?>">Konfirmasi Pembayaran</a>
-                        </div>
-                    </li> -->
-
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="" id="dropdown04" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Katalog</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="<?php echo site_url('pages/produk'); ?>">Produk</a>
@@ -170,16 +160,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <a class="dropdown-item"
                                 href="<?php echo site_url('pages/jasa'); ?>">Jasa</a>
                         </div>
-                    </li>
-
-                    <!-- <li class="nav-item"><a href="<?php echo site_url('pages/about'); ?>" class="nav-link">Tentang
-                            Kami</a></li> -->
-                    <!-- <li class="nav-item"><a href="<?php echo site_url('pages/contact'); ?>" class="nav-link">Kontak</a>
-                    </li> -->
+                    </li>  
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Info Kontak</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <div class="dropdown-menu" aria-labelledby="dropdown05">
                             <a class="dropdown-item" href="https://wa.me/<?php echo get_settings('store_phone_number'); ?>?text=Saya%20tertarik%20dengan%20produk%20dan%20jasa%20Politeknik%20Kampar">Chat Admin</a>
 
                             <a class="dropdown-item"
@@ -188,30 +173,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                     </li>
                     <li class="nav-item"><a href="<?php echo site_url('auth/login'); ?>" class="nav-link">Login</a></li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Akun</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <?php if (is_login() && is_customer()) : ?>
-                            <a class="dropdown-item" href="<?php echo site_url('customer'); ?>">Akun saya</a>
-                            <a class="dropdown-item" href="<?php echo site_url('customer/orders'); ?>">Order</a>
-                            <div class="divider"></div>
-                            <a class="dropdown-item" href="<?php echo site_url('auth/logout'); ?>">Logout</a>
-                            <?php elseif (is_login() && is_admin()) : ?>
-                            <a class="dropdown-item" href="<?php echo site_url('admin'); ?>">Dasbor</a>
-                            <div class="divider"></div>
-                            <a class="dropdown-item" href="<?php echo site_url('auth/logout'); ?>">Logout</a>
-                            <?php else : ?>
-                            <a class="dropdown-item" href="<?php echo site_url('auth/login'); ?>">Masuk Log</a>
-                            <a class="dropdown-item" href="<?php echo site_url('auth/register'); ?>">Daftar</a>
-                            <?php endif; ?>
-
-                        </div>
-                    </li>
-                    <li class="nav-item cta cta-colored"><a href="<?php echo site_url('shop/cart'); ?>"
-                            class="nav-link"><span class="icon-shopping_cart"></span>[<span
-                                class="cart-item-total">0</span>]</a></li>
- -->
                 </ul>
             </div>
         </div>
