@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Settings extends CI_Controller {
+class Settings extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
@@ -17,7 +18,7 @@ class Settings extends CI_Controller {
         $params['title'] = 'Pengaturan';
 
         $settings['flash'] = $this->session->flashdata('settings_flash');
-        $settings['banks'] = (Array) json_decode(get_settings('payment_banks'));
+        $settings['banks'] = (array) json_decode(get_settings('payment_banks'));
 
         $this->load->view('header', $params);
         $this->load->view('settings/settings', $settings);
@@ -27,35 +28,98 @@ class Settings extends CI_Controller {
     public function update()
     {
         $fields = array(
-            'store_name', 'store_phone_number', 'store_email', 'store_tagline', 'store_description',
-            'store_address', 'min_shop_to_free_shipping_cost', 'shipping_cost'
+            'store_name',
+            'store_phone_number',
+            'store_email',
+            'store_tagline',
+            'store_description',
+            'store_address',
+            'min_shop_to_free_shipping_cost',
+            'shipping_cost'
         );
 
-        foreach ($fields as $field)
-        {
+        foreach ($fields as $field) {
             $data = $this->input->post($field);
 
             update_settings($field, $data);
         }
 
-        $banks = $this->input->post('banks');
-        update_settings('payment_banks', '{}');
+        $config['upload_path'] = './assets/uploads/sites/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = 2048;
+        $this->load->library('upload', $config);
+        $current_logo = get_settings('store_logo');
+        $current_banner_first = get_settings('home_banners_first');
+        $current_banner_second = get_settings('home_banners_second');
+        if (isset($_FILES['logo']) && @$_FILES['logo']['error'] == '0') {
+            if ($this->upload->do_upload('logo')) {
+                $upload_data = $this->upload->data();
+                $new_file_name = $upload_data['file_name'];
 
-        if (is_array($banks) && count($banks) > 0 && ! empty($banks[0]['bank']))
-        {
-            $data = [];
-            foreach ($banks as $bank)
-            {
-                $bank_name = $bank['bank'];
-                $bank_name = $this->_bank_slug($bank_name);
+                $store_logo = $new_file_name;
 
-                $data[$bank_name] = $bank;
+                update_settings('store_logo', $store_logo);
+                if (file_exists('assets/uploads/sites/' . $current_logo))
+                    unlink('./assets/uploads/sites/' . $current_logo);
+            }
+        } else {
+            $store_logo = $current_logo;
+            update_settings('store_logo', $store_logo);
+        }
+
+        if (isset($_FILES['banner_first']) && @$_FILES['banner_first']['error'] == '0') {
+            if ($this->upload->do_upload('banner_first')) {
+                $upload_data = $this->upload->data();
+                $banner_first_new_file_name = $upload_data['file_name'];
+
+                $home_banners_first = $banner_first_new_file_name;
+
+                update_settings('home_banners_first', $home_banners_first);
+                if (file_exists('assets/uploads/sites/' . $current_banner_first))
+                    unlink('./assets/uploads/sites/' . $current_banner_first);
+            }else{
+                $error = array('error' => $this->upload->display_errors());
+                $this->output->set_content_type('application/json')->set_output(json_encode($error));
+                exit;
                 
             }
-
-            $data = json_encode($data);
-            update_settings('payment_banks', $data);
+        } else {
+            $home_banners_first = $current_banner_first;
+            update_settings('home_banners_first', $home_banners_first);
         }
+
+        if (isset($_FILES['banner_second']) && @$_FILES['banner_second']['error'] == '0') {
+            if ($this->upload->do_upload('banner_second')) {
+                $upload_data = $this->upload->data();
+                $banner_seccond_new_file_name = $upload_data['file_name'];
+
+                $home_banners_seccond = $banner_seccond_new_file_name;
+
+                update_settings('home_banners_second', $home_banners_seccond);
+                if (file_exists('assets/uploads/sites/' . $current_banner_second))
+                    unlink('./assets/uploads/sites/' . $current_banner_second);
+            }
+        } else {
+            $home_banners_second = $current_banner_second;
+            update_settings('home_banners_second', $home_banners_second);
+        }
+
+
+        // $banks = $this->input->post('banks');
+        // update_settings('payment_banks', '{}');
+
+        // if (is_array($banks) && count($banks) > 0 && ! empty($banks[0]['bank'])) {
+        //     $data = [];
+        //     foreach ($banks as $bank) {
+        //         $bank_name = $bank['bank'];
+        //         $bank_name = $this->_bank_slug($bank_name);
+
+        //         $data[$bank_name] = $bank;
+        //     }
+
+        //     $data = json_encode($data);
+        //     update_settings('payment_banks', $data);
+        // }
 
         $this->session->set_flashdata('settings_flash', 'Pengaturan berhasil diperbarui');
         redirect('admin/settings');
@@ -83,7 +147,7 @@ class Settings extends CI_Controller {
         $this->session->set_flashdata('settings_flash', 'Berhasil menambah data bank');
         redirect('admin/settings');
     }
-	
+
     public function profile()
     {
         $params['title'] = 'Profil Saya';
@@ -104,12 +168,9 @@ class Settings extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('username', 'required');
 
-        if ($this->form_validation->run() === FALSE)
-        {
+        if ($this->form_validation->run() === FALSE) {
             $this->profile();
-        }
-        else
-        {
+        } else {
             $data = $this->setting->get_profile();
             $current_profile_picture = $data->profile_picture;
             $current_password = $data->password;
@@ -119,7 +180,7 @@ class Settings extends CI_Controller {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if ( empty($password))
+            if (empty($password))
                 $password = $current_password;
             else
                 $password = password_hash($password, PASSWORD_BCRYPT);
@@ -130,21 +191,17 @@ class Settings extends CI_Controller {
 
             $this->load->library('upload', $config);
 
-            if ( isset($_FILES['picture']) && @$_FILES['picture']['error'] == '0')
-            {
-                if ( $this->upload->do_upload('picture'))
-                {
+            if (isset($_FILES['picture']) && @$_FILES['picture']['error'] == '0') {
+                if ($this->upload->do_upload('picture')) {
                     $upload_data = $this->upload->data();
                     $new_file_name = $upload_data['file_name'];
 
                     $profile_picture = $new_file_name;
 
-                    if ( file_exists('assets/uploads/users/'. $current_profile_picture))
-                        unlink('./assets/uploads/users/'. $current_profile_picture);
+                    if (file_exists('assets/uploads/users/' . $current_profile_picture))
+                        unlink('./assets/uploads/users/' . $current_profile_picture);
                 }
-            }
-            else
-            {
+            } else {
                 $profile_picture = $current_profile_picture;
             }
 
