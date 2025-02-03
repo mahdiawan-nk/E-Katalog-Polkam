@@ -71,16 +71,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         @media (max-width: 991px) {
             .owl-carousel.home-slider .slider-item {
-                background-size: fill;
+                background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center center;
                 position: relative;
                 z-index: 0;
+                height: 25vh;
             }
 
             .owl-carousel.home-slider {
                 position: relative;
-                height: 27vh;
+                height: 25vh;
                 z-index: 0;
             }
 
