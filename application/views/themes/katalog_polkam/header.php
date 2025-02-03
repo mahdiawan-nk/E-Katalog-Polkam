@@ -59,9 +59,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
             top: 75%;
             bottom: 100px;
         }
+
         #products {
-                margin-top: 30px;
-            }
+            margin-top: 30px;
+        }
+
+        .text-brands {
+            color: #ff7f00;
+            text-align: left;
+        }
+
         @media (max-width: 991px) {
             .owl-carousel.home-slider .slider-item {
                 background-size: fill;
@@ -91,6 +98,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
             #home-section {
                 height: auto;
             }
+
+            .text-brands {
+                color: #ff7f00;
+                text-align: left;
+                font-size: 18px;
+            }
         }
 
         .whatsapp-button {
@@ -117,9 +130,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body class="goto-here">
-    <div class="py-1 d-none d-lg-block" style="background-color: #ff7f00; color: white;">
-        <div class="container">
-            <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+    <div class="py-1 " style="background-color: #ff7f00; color: white;">
+        <marquee class="d-lg-none d-sm-block" behavior="scroll" direction="left"><?php echo get_settings('store_tagline'); ?> - <?php echo get_settings('store_phone_number'); ?> - <?php echo get_settings('store_email'); ?></marquee>
+        <div class="container d-none d-lg-block">
+            <div class="row no-gutters d-flex align-items-start align-items-center px-md-0 ">
                 <div class="col-lg-12 d-block">
                     <div class="row d-flex">
                         <div class="col-md pr-4 d-flex topper align-items-center">
@@ -142,7 +156,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <h4 style="color: #ff7f00; text-align: left;"><strong>E-KATALOG PRODUK & JASA <br>POLITEKNIK KAMPAR</strong></h4>
+            <h4 class="text-brands"><strong>E-KATALOG PRODUK & JASA <br>POLITEKNIK KAMPAR</strong></h4>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span>
@@ -160,9 +174,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <a class="dropdown-item"
                                 href="<?php echo site_url('pages/jasa'); ?>">Jasa</a>
                         </div>
-                    </li>  
+                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Info Kontak</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
                             <a class="dropdown-item" href="https://wa.me/<?php echo get_settings('store_phone_number'); ?>?text=Saya%20tertarik%20dengan%20produk%20dan%20jasa%20Politeknik%20Kampar">Chat Admin</a>
